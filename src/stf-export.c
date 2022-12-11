@@ -722,8 +722,10 @@ cb_set_export_option (const char *key, const char *value,
 			eol = "\r";
 		else if	(g_ascii_strcasecmp ("windows", value) == 0)
 			eol = "\r\n";
+		else if (g_ascii_strcasecmp ("ascii", value) == 0)
+			eol = "\x1e";
 		else {
-			errtxt = _("eol must be one of unix, mac, and windows");
+			errtxt = _("eol must be one of unix, mac, ascii, and windows");
 			goto error;
 		}
 
